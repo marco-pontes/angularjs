@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="mainApp">
+<head>
+	<!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular-route.js"></script>
+	<script type="text/javascript" src="js/i18n/angular-locale_pt-br.js"></script>
+	<script type="text/javascript" src="js/main.module.js"></script>
+	<script type="text/javascript" src="js/gerenciadorCtrl.js"></script>
+	<script type="text/javascript" src="js/pedidosCtrl.js"></script>
+		
+	<style type="text/css">
+		.show-grid {
+		    margin-bottom: 15px;
+		}
+	</style>
+</head>
+<body>
+	<div class="navbar-wrapper">
+		<div class="container">
+			<ul class="nav nav-tabs">
+	  			<li class="#/gerenciador"><a href="#">Gerenciador</a></li>
+	  			<li><a href="#/pedidos">Pedidos</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div ng-view>
+		</div>
+	</div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<div class="navbar-wrapper">
+		<div class="container"></div>
+	</div>
+	<div class="container">
+			<div class="row show-grid">
+	  			<div class="col-md-6">
+	  				<div class="page-header">
+					  <h4>Informações </h4>
+					</div>
+	  				<div class="panel panel-primary">
+				    	<div class="panel-heading">
+				        	<h3 class="panel-title">Resumo de Pedidos</h3>
+				      	</div>
+				      	<div class="panel-body">
+				      		Pedidos: <span ng-bind="pedidos.length" ></span><br/>
+				        	Valor Total: <span ng-bind="valorTotal | currency" ></span><br/>
+				      	</div>
+		    		</div>
+	  			</div>
+	  			<div class="col-md-6">
+	  				<div class="page-header" ng-if="pedidos.length > 0 ">
+					  <h4>Pedidos Realizados</h4>
+					</div>
+		  			<table class="table table-striped" ng-if="pedidos.length > 0 ">
+						<tr>
+							<th >Mesa</th>
+							<th >Quantidade</th>
+							<th >Item</th>
+							<th >Preço</th>
+							<th >Subtotal</th>
+							<th >Data</th>
+							<th >Opções</th>
+						</tr>
+						<tr ng-repeat="pedido in pedidos">
+							<td> <span ng-bind="pedido.mesa"></span></td>
+							<td> <span ng-bind="pedido.quantidade"></span></td>
+							<td> <span ng-bind="pedido.item.descricao"></span></td>
+							<td> <span ng-bind="pedido.item.preco | currency"></span></td>
+							<td> <span ng-bind="pedido.item.preco * pedido.quantidade | currency"></span></td>
+							<td> <span ng-bind="pedido.data | date : 'dd/MM/yyyy hh:mm'"></span></td>
+							<td> <button class="btn btn-danger btn-sm" ng-click="apagaPedido(pedido)">Apagar Pedido</button> </td>
+						</tr>
+					</table>
+				</div>
+			</div>
+	</div>

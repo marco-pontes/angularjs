@@ -1,0 +1,75 @@
+<div class="row show-grid">
+	<div class="col-md-6">
+		<div class="page-header">
+		  <h4>Gerenciador de Pedidos {{'!' | *:10}} <small>Adicionar Pedido</small></h4>
+		</div>
+
+		<div class="alert alert-danger" 
+		ng-show="pedidosForm.$dirty && pedidosForm.mesaField.$invalid && pedidosForm.quantidadeField.$invalid 
+				&& pedidosForm.itemField.$invalid" >
+			<p class="bg-danger" ng-show="pedidosForm.mesaField.$dirty && pedidosForm.mesaField.$error.required">
+				O campo mesa deve ser preenchido!<br/></p>
+			<p class="bg-danger" ng-show="pedidosForm.mesaField.$dirty && pedidosForm.mesaField.$error.number">
+				O campo mesa deve ter um número válido!<br/></p>
+			<p class="bg-danger" ng-show="pedidosForm.quantidadeField.$dirty && pedidosForm.quantidadeField.$error.required">
+				O campo quantidade deve ser preenchido!<br/></p>
+			<p class="bg-danger" ng-show="pedidosForm.quantidadeField.$dirty && pedidosForm.quantidadeField.$error.number">
+				O campo quantidade deve ter um número válido!<br/></p>
+			<p class="bg-danger" ng-show="pedidosForm.itemField.$dirty && pedidosForm.itemField.$error.required">
+				O campo item deve ser preenchido!<br/></p>
+		</div>
+			<form name="pedidosForm" class="form-horizontal">
+				<div class="form-group" ng-class="{'has-error': pedidosForm.mesaField.$dirty && pedidosForm.mesaField.$invalid}">
+				<label  class="col-sm-2 control-label" for="mesa">Mesa</label> 
+				<div class="col-sm-10">
+					<input id="mesa" type="number" name="mesaField" class="form-control" ng-model="pedido.mesa" ng-required="true"/>
+				</div>
+			</div>
+			<div class="form-group" ng-class="{'has-error': pedidosForm.quantidadeField.$dirty && pedidosForm.quantidadeField.$invalid}">
+				<label  class="col-sm-2 control-label" for="quantidade">Quantidade</label> 
+				<div class="col-sm-10">
+					<input id="quantidade" type="number" name="quantidadeField" class="form-control" ng-model="pedido.quantidade" required="true" />
+				</div>
+			</div>
+			<div class="form-group" ng-class="{'has-error': pedidosForm.itemField.$dirty && pedidosForm.itemField.$invalid}">
+				<label  class="col-sm-2 control-label" for="item">Item</label> 
+				<div class="col-sm-10">
+					<select id="item" name="itemField" class="form-control" ng-model="pedido.item" ng-options="item.descricao for item in itens" ng-required="true" >
+						<option value="">Selecionar Item</option>
+					</select>
+				</div>
+			</div>
+			<button class="btn btn-lg btn-success" ng-click="criaPedido(pedido)" ng-disabled="pedidosForm.$invalid" >Criar Pedido</button>
+		</form>
+
+	</div>
+		<div class="col-md-6">
+								<div class="page-header">
+		  <h4><small>Filtro de Itens</small></h4>
+		</div>
+		<div class="form-group">
+			<input id="busca" class="form-control" type="text" ng-model="criterioDoFiltro" placeholder="Digite para filtrar..." />
+		</div>
+			<div class="panel panel-default">
+			<div class="panel-heading">Itens</div>
+			<div class="panel-body">								
+				<table class="table table-hover">
+					<tr>
+						<th ng-model="ordemFiltro" ng-click="ordemFiltro = !ordemFiltro">Nome</th>
+						<th>Preço</th>
+					</tr>
+					<tr ng-repeat="item in itens | filter:criterioDoFiltro |orderBy:'nome':ordemFiltro" ng-click="item.selecionado = !item.selecionado">
+						<td>
+							<span ng-bind="item.descricao"></span>
+							<div ng-show="item.selecionado" ng-bind="item.detalhes"></div>
+						</td>
+						<td>
+							<span ng-bind="item.preco | currency"></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		</div>
+</div>
+<teste texto="texto do atribute"></teste>
