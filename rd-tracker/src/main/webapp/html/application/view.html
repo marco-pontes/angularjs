@@ -1,0 +1,38 @@
+<div class="page-header">
+	<h4>{{application.name}} <small>page views</small></h4>
+	
+</div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">App Info</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-4" ng-repeat="user in application.users">
+				<h5>{{user.name}} <small>{{user.email}}</small></h5>
+				<table class="table table-condensed table-striped">
+					<thead>
+						<tr>
+							<th>URL</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="pageView in user.pageViews | orderBy: 'time'">
+							<td>{{pageView.url}}</td>
+							<td>{{pageView.time | date :  "dd.MM.yy HH:mm:ss"}}</td>
+						</tr>
+						<tr ng-if="user.pageViews.length == 0">
+							<td colspan=2>
+								No page views registered for the user yet.
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-12" ng-if="application.users.length == 0">No users tracked in the {{application.name}} application yet. 
+			Add the rd-tracking.js library to the clients app, using the UID {{application.hashCode}} to send page views to this dashboard.
+			 Navigate on the client's app for the analysis to show up here</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<div class="page-header">
+	<h4>Create an Application <small>to track page views</small></h4>
+	
+</div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">App Info</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-6">
+				<div role="alert" class="alert alert-danger" 
+					ng-show="applicationForm.name.$dirty && applicationForm.name.$invalid">
+					<span ng-show="applicationForm.name.$error.minlength && applicationForm.name.$dirty">The <strong>name</strong> is too short.<br/></span>
+					<span ng-show="applicationForm.name.$error.required && applicationForm.name.$dirty">The <strong>name</strong> shouldn't be left empty.<br/></span>
+				</div>
+				<form ng-submit="createApplication(application)" class="form-horizontal" role="form" name="applicationForm">
+					<div class="form-group" ng-class="{'has-error' : applicationForm.name.$dirty && applicationForm.name.$invalid}">
+					    <label for="user-name" class="col-sm-2 control-label">Name</label>
+					    <div class="col-sm-6">
+							<input type="text" name="name" id="user-name" class="form-control" ng-model="application.name" placeholder="Name..." ng-required="true" ng-minlength="5"/>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<button class="btn btn-primary" ng-disabled="applicationForm.$invalid" >Create</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -2,10 +2,9 @@ package com.rd.rdtracker.entities;
 
 import java.util.List;
 
-import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,21 +24,19 @@ public class User {
 	private String email;
 	@Min(6)
 	private String password;
-	@Embedded
-	private Address address;
-	@ElementCollection
-	private List<Profile> profiles;
+    @ElementCollection(fetch = FetchType.EAGER)
+	private List<PageView> pageViews;
 	
 	public String getLogin() {
 		return login;
 	}
-	public void setLogin(String login) {
+	public void setLogin(final String login) {
 		this.login = login;
 	}
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(final String password) {
 		this.password = password;
 	}
 
@@ -47,7 +44,7 @@ public class User {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -55,7 +52,7 @@ public class User {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(final Integer age) {
 		this.age = age;
 	}
 
@@ -63,7 +60,7 @@ public class User {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 
@@ -71,21 +68,14 @@ public class User {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final Long id) {
 		this.id = id;
 	}
 
-	public Address getAddress() {
-		return address;
+	public List<PageView> getPageViews() {
+		return pageViews;
 	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-	public List<Profile> getProfiles() {
-		return profiles;
-	}
-	public void setProfiles(List<Profile> profiles) {
-		this.profiles = profiles;
+	public void setPageViews(final List<PageView> profiles) {
+		this.pageViews = profiles;
 	}
 }

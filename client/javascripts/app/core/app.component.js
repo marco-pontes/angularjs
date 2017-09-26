@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var AppComponent = (function () {
@@ -23,13 +23,10 @@ var AppComponent = (function () {
         script.async = true;
         script.src = 'static/javascripts/rd-tracking.js';
         pageScripts.parentNode.insertBefore(script, pageScripts);
-        if (localStorage.getItem('nav-static') === 'true') {
-            //this.config.state['nav-static'] = true;
-        }
         this.router.events.subscribe(function (event) {
             if (event instanceof router_1.NavigationEnd) {
                 if (window['trackVisit']) {
-                    window['trackVisit'](event.url);
+                    window['trackVisit']('97a39a2f-b395-45f7-824e-2ec26525f1cb', event.url);
                 }
             }
         });

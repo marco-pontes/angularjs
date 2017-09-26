@@ -1,0 +1,27 @@
+ <h3 class="panel-title">Tracked Applications</h3>
+ <div class="panel panel-default panel-table">
+ 	<table class="table table-condensed table-striped table-hover">
+ 	<thead>
+ 		<tr>
+ 			<th>Application Name</th>
+ 			<th>UID</th>
+ 			<th></th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+ 		<tr ng-show="applications.length == 0">
+ 			<td colspan=3>
+		 		No applications are being tracked by RD Tracker right now. 
+		 		Please add a new application using the <a href="#!/application/create">Create App</a> link. 
+		 		Use the generated UID on your application script to start tracking!
+ 			</td>
+ 		</tr>
+ 		<tr ng-repeat="application in applications">
+ 			<td>{{application.name}}</td>
+ 			<td>{{application.hashCode}}</td>
+ 			<td><a href="#!/application/show/{{application.id}}">Details</td>
+ 		</tr>
+ 	</tbody>
+ 	</table>
+ 	{{}}
+ </div>

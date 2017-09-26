@@ -63,6 +63,7 @@ module.exports = {
                     {src: './node_modules/zone.js/dist/zone.js', minSrc: './node_modules/zone.js/dist/zone.min.js'},
                     {src: './node_modules/systemjs/dist/system.src.js', minSrc: './node_modules/systemjs/dist/system.js'},
                     {src: './node_modules/reflect-metadata/Reflect.js', minSrc: './node_modules/reflect-metadata/Reflect.js'},
+                    {src: './node_modules/tether/dist/js/tether.js', minSrc: './node_modules/tether/dist/js/tether.min.js'},
                     {src: './node_modules/jquery/dist/jquery.js', minSrc: './node_modules/jquery/dist/jquery.min.js'},
                     {src: './node_modules/bootstrap/dist/js/bootstrap.js', minSrc: './node_modules/bootstrap/dist/js/bootstrap.min.js'},
                     {src: './node_modules/pace/pace.js', minSrc: './node_modules/pace/pace.min.js'}

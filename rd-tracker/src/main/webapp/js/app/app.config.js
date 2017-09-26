@@ -1,7 +1,8 @@
 app.config(function($routeProvider){
 	$routeProvider. 
-	when("/", {templateUrl:'html/default.html', controller:'MainController'}).
-	when("/user/index", {templateUrl:'html/user/index.html', controller:'UserController'}).
+	when("/", {templateUrl:'html/summary.html', controller:'MainController'}).
+	when("/application/create", {templateUrl:'html/application/create.html', controller:'ApplicationCreateController'}).
+	when("/application/show/:appId", {templateUrl:'html/application/view.html', controller:'ApplicationViewController'}).
 	otherwise({redirectTo:'/'});
 });
 

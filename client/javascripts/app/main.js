@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 // /// <reference path="../../node_modules/angular2/typings/browser.d.ts" />  
 /// <reference path="../../node_modules/typescript/lib/lib.es6.d.ts" />
 var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");

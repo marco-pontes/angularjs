@@ -1,0 +1,39 @@
+header {
+    display: block;
+    height: auto;
+    width: auto;
+    overflow: visible;
+    border-top-width: 3px;
+    border-top-style: solid;
+    padding: 30px 15px;
+    background-color: #506e84;
+    border-top-color: #40586a;
+}
+
+
+
+.navbar .logoicon-resultados {
+    color: #506e84;
+}
+
+.navbar .logoicon-digitais {
+    color: #7e8285;
+}
+
+body{
+	background-color: #F5F5F5;
+}
+
+.logoicon-resultados {
+    color: #98b0c1;
+    font-size: 30px;
+}
+
+.logoicon-digitais {
+    color: #d3dbe0;
+    font-size: 30px;
+}
+
+a.logo {
+    padding:20px;
+}

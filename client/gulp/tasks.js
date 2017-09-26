@@ -10,9 +10,7 @@ var gulp = require('gulp'),
     path = require('path'),
     rename = require('gulp-rename'),
     SystemBuilder = require('systemjs-builder'),
-    image = require('gulp-image'),
     rimraf = require('gulp-rimraf'),
-    spritesmith = require("gulp-spritesmith"),
     runSequence = require('run-sequence'),
     concat = require('gulp-concat'),
     cleanMinCSS = require('gulp-clean-css'),
@@ -33,24 +31,6 @@ gulp.task('compile:images', function(done) {
     //gutil.log(chalk.red("SourceMap: "  + sourceMap));
     gutil.log(chalk.green('✔ ') + chalk.bold.gray(paths.images.src) + chalk.red(' -> ') + chalk.bold(paths.images.dest));
     var stream = gulp.src(paths.images.src)
-        .pipe(image({
-            pngquant: true,
-            optipng: false,
-            zopflipng: true,
-            advpng: true,
-            jpegRecompress: false,
-            jpegoptim: true,
-            mozjpeg: true,
-            gifsicle: true,
-            svgo: true
-        }))
-        //.pipe(gif('*.png',spritesmith({
-        //    imgName: 'sprite.png',
-        //    styleName: 'sprite.css',
-        //    imgPath: '../img/sprite.png'
-        //})))
-        // .pipe(gif('*.png', gulp.dest('./dist/img/')))
-        // .pipe(gif('*.css', gulp.dest('./dist/css/')));
         .pipe(gulp.dest(paths.images.dest))
         .on('end', function (){
             logFinish('Images copy and optimization');
@@ -173,9 +153,6 @@ gulp.task('bundle:angular-app', function(done){
             })
             .then(function(){
                 logFinish('Angular app bundle')();
-                done();
-            }).catch(function(){
-                logFinish('Error on bundle')();
                 done();
             });
         })
