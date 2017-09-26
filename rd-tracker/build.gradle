@@ -1,0 +1,68 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'pmd'
+
+project.version = '0.1-SNAPSHOT'
+project.sourceCompatibility = 1.8
+project.targetCompatibility = 1.8
+project.buildDir = 'bin'
+project.webAppDirName = 'webapp'
+
+
+repositories {
+	 mavenCentral()
+}
+
+dependencies {
+	compile 'javax:javaee-web-api:7.0'
+    compile 'org.springframework.security:spring-security-web:3.2.5.RELEASE'
+}
+
+eclipse {
+	wtp {
+		facet {
+			//you can add some extra wtp facets; mandatory keys: 'name', 'version':
+			facet name: 'jst.java', version: '1.8'
+			facet name: 'jst.web', version: '3.1'
+		}
+	}
+}
+
+pmd {
+    toolVersion = '5.1.3'
+    ignoreFailures = true
+    ruleSets = [
+            'java-android',
+            'java-basic',
+            'java-braces',
+            'java-clone',
+            'java-codesize',
+            'java-comments',
+            'java-controversial',
+            'java-coupling',
+            'java-design',
+            'java-empty',
+            'java-finalizers',
+            'java-imports',
+            'java-j2ee',
+            'java-javabeans',
+            'java-junit',
+            'java-logging-jakarta-commons',
+            'java-logging-java',
+            'java-migrating',
+            'java-naming',
+            'java-optimizations',
+            'java-strictexception',
+            'java-strings',
+            'java-sunsecure',
+            'java-typeresolution',
+            'java-unnecessary',
+            'java-unusedcode'
+            ]
+}
+
+def environment = hasProperty('environment') ? environment : 'development'
+println "Building for $environment"
+sourceSets.main.resources.srcDirs +="src/main/environments/$environment"
+

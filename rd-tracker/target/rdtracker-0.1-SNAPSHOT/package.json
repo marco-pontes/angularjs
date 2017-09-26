@@ -1,0 +1,18 @@
+{
+  "name": "rd-tracker",
+  "version": "0.0.1",
+  "description": "Tracking application for clicks sent through a javascript library",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "angular-route": "^1.6.6",
+    "bootstrap": "^3.3.7",
+    "jquery": "^2.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "marco",
+  "license": "ISC"
+}
