@@ -1,0 +1,7 @@
+target/
+.settings/
+src/main/webapp/js/node_modules
+.classpath
+.project
+bin/
+
