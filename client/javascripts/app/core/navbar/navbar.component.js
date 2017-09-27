@@ -8,9 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var NavbarComponent = (function () {
+var NavbarComponent = /** @class */ (function () {
     function NavbarComponent(el) {
     }
     NavbarComponent.prototype.ngOnInit = function () {
@@ -23,13 +23,13 @@ var NavbarComponent = (function () {
         //this.message = "Não foi possível deslogar";
         // });
     };
+    NavbarComponent = __decorate([
+        core_1.Component({
+            selector: '[navbar]',
+            templateUrl: '/static/views/core/navbar/navbar.html'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef])
+    ], NavbarComponent);
     return NavbarComponent;
 }());
-NavbarComponent = __decorate([
-    core_1.Component({
-        selector: '[navbar]',
-        templateUrl: '/static/views/core/navbar/navbar.html'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], NavbarComponent);
 exports.NavbarComponent = NavbarComponent;

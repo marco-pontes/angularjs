@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
 
   constructor(el: ElementRef, private router: Router) {
     this.el = el;
-    this.router = router;
   }
 
   ngOnInit(): void {

@@ -55,7 +55,9 @@ gulp.task('compile:typescript', function(done) {
             "sourceMap": sourceMap,
             "emitDecoratorMetadata": emitDecoratorMetadata,
             "experimentalDecorators": experimentalDecorators,
-            "removeComments": removeComments
+            "removeComments": removeComments,
+            "target" :"ES5",
+            "moduleResolution":"node"
         }))
         .pipe(gulp.dest(paths.typescript.dest))
         .on('end', function () {

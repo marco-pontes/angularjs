@@ -8,10 +8,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
-var SidebarComponent = (function () {
+var SidebarComponent = /** @class */ (function () {
     function SidebarComponent(el, location) {
         this.$el = jQuery(el.nativeElement);
         this.location = location;
@@ -20,13 +20,13 @@ var SidebarComponent = (function () {
     };
     SidebarComponent.prototype.ngOnInit = function () {
     };
+    SidebarComponent = __decorate([
+        core_1.Component({
+            selector: '[sidebar]',
+            templateUrl: '/static/views/core/sidebar/sidebar.html'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef, common_1.Location])
+    ], SidebarComponent);
     return SidebarComponent;
 }());
-SidebarComponent = __decorate([
-    core_1.Component({
-        selector: '[sidebar]',
-        templateUrl: '/static/views/core/sidebar/sidebar.html'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef, common_1.Location])
-], SidebarComponent);
 exports.SidebarComponent = SidebarComponent;

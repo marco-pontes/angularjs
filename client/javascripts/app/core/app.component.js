@@ -8,14 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent(el, router) {
         this.router = router;
         this.el = el;
-        this.router = router;
     }
     AppComponent.prototype.ngOnInit = function () {
         var script = document.createElement('script');
@@ -31,14 +30,14 @@ var AppComponent = (function () {
             }
         });
     };
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: '[app]',
+            styleUrls: ['/static/stylesheets/application.css'],
+            templateUrl: '/static/views/core/core.html'
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef, router_1.Router])
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: '[app]',
-        styleUrls: ['/static/stylesheets/application.css'],
-        templateUrl: '/static/views/core/core.html'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef, router_1.Router])
-], AppComponent);
 exports.AppComponent = AppComponent;
