@@ -18,7 +18,9 @@ Each page navigation calls the tracker js lib, which can send the tracking infor
 In the root folder run:
 
 npm install
+
 npm remove @types/es6-promise
+
 npm start 
 
 #### SPA page client(client-spa)
@@ -33,6 +35,7 @@ The tracking is called inside the angular router navigation events(app.component
 In the root folder run:
 
 npm install
+
 npm start
 
 ###### Where to put UIDs for tracking:
@@ -51,9 +54,13 @@ For a client's site to be tracked inside the rd-tracker tool, it needs to includ
 Currently there is an instance of the tracking tool running in aws: http://52.67.19.151:8080/
 ##### To run this app: 
 Run:
+
 mvn package
+
 go into src/main/webapp and run:
+
 npm install
+
 install it into a java EE container(tested with wildfly 10.1)
 
 ### The Tracker Library(rd-tracking.js)
