@@ -6,7 +6,7 @@ Client examples to test the tracker tool and the tracker tool itself.
 
 ### Client Examples:
 There are two client examples using the rd-tracking.js library and these examples are constructed in different ways, with distinct technologies.
-Both of those clients include the rd-tracking.js library by using a javascript call to insertBefore in the document, so the library inclusion(in case it was on a CDN) dont slow down the client's page load.
+Both of those clients include the rd-tracking.js library by using a javascript call to insertBefore in the document, so the library inclusion(in case it was on a CDN) doesn't slow down the client's page load.
 
 #### Normal page client(client)
 
