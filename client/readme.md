@@ -9,5 +9,9 @@ Then run
 npm install
 npm start
 
+####To test the RD tracking library run:
+
+npm test
+
 Navigate through the system, when you fill in the contact information, the pages will start to be tracked.
 

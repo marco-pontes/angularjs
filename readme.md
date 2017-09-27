@@ -19,9 +19,11 @@ In the root folder run:
 
 npm install
 
-npm remove @types/es6-promise
+npm start
 
-npm start 
+####To test the RD tracking library run:
+
+npm test
 
 #### SPA page client(client-spa)
 
@@ -30,13 +32,17 @@ The library is almost the same, but it doesn't call the tracking for itself.
 
 The tracking is called inside the angular router navigation events(app.component.ts#35). It uses gulp as the build tool and some other libraries to package the compiled typescript and other files.
 
+
 ##### To run this app: 
 
 In the root folder run:
 
 npm install
 
-npm start
+npm remove @types/es6-promise
+
+npm start 
+
 
 ###### Where to put UIDs for tracking:
 client: document.clientId variable inside application.js
