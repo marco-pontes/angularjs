@@ -15,7 +15,7 @@ Each page navigation calls the tracker js lib, which can send the tracking infor
 
 ##### To run this app: 
 
-In the root folder run:
+In the root 'client' folder run:
 
 npm install
 
@@ -35,7 +35,7 @@ The tracking is called inside the angular router navigation events(app.component
 
 ##### To run this app(tested on windows with node 6.11.3): 
 
-In the root folder run:
+In the root 'client-spa' folder run:
 
 npm install
 
@@ -60,15 +60,16 @@ Each new application is given an unique ID that customers use to identify their 
 For a client's site to be tracked inside the rd-tracker tool, it needs to include the rd-tracking.js library within its code.
 Currently there is an instance of the tracking tool running in aws: **http://52.67.19.151:8080/**
 ##### To run this app: 
-Run:
 
-mvn package
-
-go into src/main/webapp and run:
+Go into rd-tracker/src/main/webapp and run:
 
 npm install
 
-install it into a java EE container(tested with wildfly 10.1)
+In the root 'rd-tracker' folder run:
+
+mvn package
+
+Install the generated .war into a java EE container(tested with wildfly 10.1) and setup CORS configuration
 
 ### The Tracker Library(rd-tracking.js)
 rd-tracker.js is the javascript library that will send page views to the rd-tracker backend app. It basically saves tracked pages in the sessionStorage when there is no e-mail saved in the session(email informed by the contact form). 
