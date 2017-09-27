@@ -40,6 +40,7 @@ npm start
 
 ###### Where to put UIDs for tracking:
 client: document.clientId variable inside application.js
+
 client-spa: document.clientId variable inside index.html
 
 ### The Tracker Tool(rd-tracker):
@@ -51,7 +52,7 @@ The rd-tracker tool makes it possible to add sites to be tracked by giving an us
 Each new application is given an unique ID that customers use to identify their application/site within rd-tracker and then send tracking information.
 
 For a client's site to be tracked inside the rd-tracker tool, it needs to include the rd-tracking.js library within its code.
-Currently there is an instance of the tracking tool running in aws: http://52.67.19.151:8080/
+Currently there is an instance of the tracking tool running in aws: **http://52.67.19.151:8080/**
 ##### To run this app: 
 Run:
 
