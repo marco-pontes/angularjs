@@ -9,44 +9,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Client App Being Tracked">
 
-    <!-- end favicon -->
-
-    <!-- vendor:css -->
-    <!-- endinject -->
-
-
-    <!-- application:css -->
-    <!-- endinject -->
+    <link rel="stylesheet" href="/static/stylesheets/bootstrap.css">
 
 </head>
 <base href="/">
 <body>
-    <div app>
+    <div class="container">
+            <div class="navbar-header">
+                <button data-target=".navbar-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand logoicon-digitais">RD Client</a>
+            </div>
+           <nav class="collapse navbar-collapse"> 
+                <ul class="nav navbar-nav">
+                <li>
+                  <a href="static/views/home/home.html" >
+                  <span class="icon">
+                      <i class="fa fa-home"></i>
+                  </span>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="static/views/price/price.html" >
+                  <span class="icon">
+                      <i class="fa fa-money"></i>
+                  </span>
+                    Price
+                  </a>
+                </li>
+                    <li>
+                  <a href="static/views/contact/contact.html">
+                  <span class="icon">
+                      <i class="fa fa-user"></i>
+                  </span>
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+        </div>
+      <div class="container">
+        <h4>Summary</h4>
+      </div>
 
     </div>
-    <!-- /.wrapper -->
 
-    <script>
-        paceOptions = {
-            target: ".content-wrap",
-            ghostTime: 1000
-        }
-        window.paceOptions = paceOptions;
-    </script>
+    <script src="/static/node_modules/tether/dist/js/tether.js"></script>
+    <script src="/static/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/static/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
-    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/javascripts/application.js"></script>
 
-    <!-- vendor:js -->
-    <!-- endinject -->
-
-    <!-- application:js -->
-    <!-- endinject -->
-
-
-    <!-- app/angular-app:js -->
-    <!-- endinject -->
-    <script>
-        
-    </script>
 </body>
 </html>

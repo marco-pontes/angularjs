@@ -3,20 +3,13 @@ package com.rd.rdtracker.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
-import javax.xml.bind.annotation.XmlTransient;
-
-import org.hibernate.annotations.Cascade;
 
 @Entity
 public class User {
@@ -33,11 +26,7 @@ public class User {
 	@Min(6)
 	private String password;
 	
-    @ManyToOne
-    @JoinColumn(name="APPLICATION_ID", nullable=false)
-    private Long applicationId; 
-	
-	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.EAGER)
 	private List<PageView> pageViews = new ArrayList<PageView>();
 	
 	public String getLogin() {
@@ -91,13 +80,7 @@ public class User {
 	public void setPageViews(final List<PageView> profiles) {
 		this.pageViews = profiles;
 	}
-	public void addPageViews(List<PageView> pageViews) {
+	public void addPageViews(final List<PageView> pageViews) {
 		this.pageViews.addAll(pageViews);
-	}
-	public Application getApplication() {
-		return application;
-	}
-	public void setApplication(Application application) {
-		this.application = application;
 	}
 }

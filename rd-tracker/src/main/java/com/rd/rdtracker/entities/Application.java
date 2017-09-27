@@ -2,14 +2,12 @@ package com.rd.rdtracker.entities;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Application {
@@ -19,7 +17,7 @@ public class Application {
 	private String name;
 	private String hashCode;
 
-	@OneToMany(mappedBy="applicationId", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<User> users;
 
     public String getHashCode() {

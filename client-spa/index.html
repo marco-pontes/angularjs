@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Client's app</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Client App Being Tracked">
+
+    <!-- end favicon -->
+
+    <!-- vendor:css -->
+    <!-- endinject -->
+
+
+    <!-- application:css -->
+    <!-- endinject -->
+
+</head>
+<base href="/">
+<body>
+    <div app>
+
+    </div>
+    <!-- /.wrapper -->
+
+    <script>
+        paceOptions = {
+            target: ".content-wrap",
+            ghostTime: 1000
+        }
+        window.paceOptions = paceOptions;
+    </script>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- vendor:js -->
+    <!-- endinject -->
+
+    <!-- application:js -->
+    <!-- endinject -->
+
+
+    <!-- app/angular-app:js -->
+    <!-- endinject -->
+    <script>
+        if(sessionStorage.hasOwnProperty('pages')){
+            sessionStorage.removeItem('pages');
+        }
+        if(sessionStorage.hasOwnProperty('e-mail')){
+            sessionStorage.removeItem('e-mail');
+        }
+        window.clientId = '5a1123de-47a5-4b08-a647-f4cf4f1a57a9';
+    </script>
+</body>
+</html>

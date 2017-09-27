@@ -55,7 +55,6 @@ public class TrackingResource {
             if (user == null) {
                 user = new User();
                 user.setEmail(email);
-                user.setApplication(application);
                 userSessionBean.save(user);
                 application.getUsers().add(user);
                 applicationSessionBean.update(application);

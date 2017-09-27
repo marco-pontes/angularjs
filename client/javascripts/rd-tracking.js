@@ -1,7 +1,3 @@
-if(sessionStorage.hasOwnProperty('pages')){
-	sessionStorage.removeItem('pages');
-	sessionStorage.removeItem('e-mail');
-}
 
 window['trackVisit'] = function (appId, page){
 	var visitedPages = [];
@@ -21,3 +17,5 @@ window['trackVisit'] = function (appId, page){
 		sessionStorage.removeItem('pages');
 	}
 }
+
+window['trackVisit'](document.clientId, document.pageUrl);

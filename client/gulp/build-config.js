@@ -55,29 +55,26 @@ module.exports = {
             dest: dist + "javascripts/app/"
         },
         js: {
-            src: ["./javascripts/app/**/*.js"],
+            src: ["./javascripts/**/*.js"],
             dest: environments[currentEnv].bundle ? dist + "javascripts/" : dist,
             bundles: {
                 vendor : [
-                    {src: './node_modules/es6-shim/es6-shim.js', minSrc: './node_modules/es6-shim/es6-shim.min.js'},
-                    {src: './node_modules/zone.js/dist/zone.js', minSrc: './node_modules/zone.js/dist/zone.min.js'},
-                    {src: './node_modules/systemjs/dist/system.src.js', minSrc: './node_modules/systemjs/dist/system.js'},
-                    {src: './node_modules/reflect-metadata/Reflect.js', minSrc: './node_modules/reflect-metadata/Reflect.js'},
                     {src: './node_modules/tether/dist/js/tether.js', minSrc: './node_modules/tether/dist/js/tether.min.js'},
                     {src: './node_modules/jquery/dist/jquery.js', minSrc: './node_modules/jquery/dist/jquery.min.js'},
-                    {src: './node_modules/bootstrap/dist/js/bootstrap.js', minSrc: './node_modules/bootstrap/dist/js/bootstrap.min.js'},
-                    {src: './node_modules/pace/pace.js', minSrc: './node_modules/pace/pace.min.js'}
+                    {src: './node_modules/bootstrap/dist/js/bootstrap.js', minSrc: './node_modules/bootstrap/dist/js/bootstrap.min.js'}
 
                 ],
                 "app/angular-app": [{src: 'javascripts/app/angular-app.js'}],
-                "rd-tracking": [{src: 'javascripts/rd-tracking.js'}]
+                "rd-tracking": [{src: 'javascripts/rd-tracking.js'}], 
+                "application": [{src: 'javascripts/application.js'}]
             }
         },
         css: {
             src: ['./stylesheets/**/*.css', './stylesheets/**/*.scss'],
             dest: environments[currentEnv].bundle ? dist + "stylesheets/" : dist,
             bundles: {
-                application : [{src: './stylesheets/application.css', sass: './stylesheets/application.scss'}],
+                application : [{src: './stylesheets/application.css', sass: './stylesheets/application.scss'},
+                                {src: './stylesheets/bootstrap.css', sass: './stylesheets/bootstrap.css'} ],
             }
         },
         html: {

@@ -6,10 +6,8 @@ var gulp = require('gulp'),
     gif = require('gulp-if'),
     livereload = require('gulp-livereload'),
     uglify = require ('gulp-uglify'),
-    typescript = require('gulp-typescript'),
     path = require('path'),
     rename = require('gulp-rename'),
-    SystemBuilder = require('systemjs-builder'),
     rimraf = require('gulp-rimraf'),
     runSequence = require('run-sequence'),
     concat = require('gulp-concat'),
@@ -20,8 +18,7 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'),
     mergeStream = require('merge-stream'),
     plumber = require('gulp-plumber'),
-    sass = require('gulp-sass'),
-    builder = new SystemBuilder();
+    sass = require('gulp-sass');
 
 var paths = config.paths;
 var hasErrors = false;
@@ -34,28 +31,6 @@ gulp.task('compile:images', function(done) {
         .pipe(gulp.dest(paths.images.dest))
         .on('end', function (){
             logFinish('Images copy and optimization');
-            done();
-        });
-});
-
-gulp.task('compile:typescript', function(done) {
-    var sourceMap = false;
-    var emitDecoratorMetadata = true;
-    var experimentalDecorators = true;
-    var removeComments = false;
-    var tsProject = typescript.createProject('tsconfig.json');
-    gutil.log(chalk.bold("Environment: " + config.env));
-    gutil.log(chalk.red("SourceMap: "  + sourceMap));
-    gutil.log(chalk.red("EmitDecoratorMetadata: "  + emitDecoratorMetadata));
-    gutil.log(chalk.red("ExperimentalDecorators: "  + experimentalDecorators));
-    gutil.log(chalk.red("RemoveComments: "  + removeComments));
-    gutil.log(chalk.green('✔ ') + chalk.bold.gray(paths.typescript.src) + chalk.red(' -> ') + chalk.bold(paths.typescript.dest));
-    var stream = gulp.src(paths.typescript.src)
-        .pipe(plumber({errorHandler: logError}))
-        .pipe(tsProject())
-        .pipe(gulp.dest(paths.typescript.dest))
-        .on('end', function () {
-            logFinish('Typescript compilation')();
             done();
         });
 });
@@ -130,30 +105,6 @@ gulp.task('bundle:css', function(done) {
         });
 });
 
-
-gulp.task('bundle:angular-app', function(done){
-    var outputFile = paths.build + getFilePaths(paths.js.bundles["app/angular-app"], config.minifyJS)[0];
-    gutil.log(chalk.bold("Environment: " + config.env));
-    gutil.log(chalk.red("SourceMaps: " + config.sourceMaps));
-    gutil.log(chalk.red("Minify: "  + config.minifyJS));
-    gutil.log(chalk.red("Mangle: "  + config.minifyJS));
-    gutil.log(chalk.green('✔ ') + chalk.gray(paths.app.src) + chalk.red(' -> ') + outputFile);
-    builder.reset();
-    builder.loadConfig(path.join(__dirname, 'systemjs.config.js'))
-        .then(function(){
-            builder.buildStatic('javascripts/app', outputFile, {
-                sourceMaps: config.sourceMaps,
-                minify: config.minifyJS,
-                mangle: config.minifyJS,
-                rollup: config.minifyJS
-            })
-            .then(function(){
-                logFinish('Angular app bundle')();
-                done();
-            });
-        })
-});
-
 gulp.task('deploy', function(done) {
     gutil.log(chalk.bold("Environment: " + config.env));
     gutil.log(chalk.red("SourceMaps: " + config.sourceMaps));
@@ -162,8 +113,7 @@ gulp.task('deploy', function(done) {
     gutil.log(chalk.red("Minify JS: "  + config.minifyJS));
     gutil.log(chalk.red("Bundle JS and CSS: "  + config.bundle));
     gutil.log(chalk.red("Use Vendor Min: "  + config.useMin));
-    runSequence('clean','compile:typescript',
-        ['bundle:angular-app','bundle:js', 'bundle:css'],
+    runSequence('clean','bundle:js', ['bundle:css'],
         ['copy:html', 'copy:images', 'copy:fonts', 'compile:index'],
         function(){
             logFinish('Deploy')();
@@ -184,9 +134,6 @@ gulp.task('watch', function () {
 
     logWatch(paths.css.src, 'bundle:css');
     gulp.watch(paths.css.src, ['bundle:css']);
-
-    logWatch(paths.app.src, 'bundle:angular-app');
-    gulp.watch(paths.app.src, ['bundle:angular-app']);
 
     logWatch(paths.images.src, 'copy:images');
     gulp.watch(paths.images.src, ['copy:images']);
