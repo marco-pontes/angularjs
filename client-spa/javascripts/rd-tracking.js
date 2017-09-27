@@ -8,7 +8,7 @@ window['trackVisit'] = function (appId, page){
 	sessionStorage.setItem('pages', visitedPages.join());
 	if(sessionStorage.hasOwnProperty('e-mail')){
 		var email = sessionStorage.getItem('e-mail');
-		var url = 'http://localhost:8080/webservices/tracking?appId=' + appId + '&email=' + email;
+		var url = 'http://52.67.19.151:8080/webservices/tracking?appId=' + appId + '&email=' + email;
 		var data = JSON.stringify(visitedPages);
 		var request = new XMLHttpRequest();  
 		request.open("POST", url); 
