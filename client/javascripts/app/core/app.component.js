@@ -13,8 +13,8 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var AppComponent = /** @class */ (function () {
     function AppComponent(el, router) {
-        this.router = router;
         this.el = el;
+        this.router = router;
     }
     AppComponent.prototype.ngOnInit = function () {
         var script = document.createElement('script');
@@ -25,7 +25,7 @@ var AppComponent = /** @class */ (function () {
         this.router.events.subscribe(function (event) {
             if (event instanceof router_1.NavigationEnd) {
                 if (window['trackVisit']) {
-                    window['trackVisit']('97a39a2f-b395-45f7-824e-2ec26525f1cb', event.url);
+                    window['trackVisit']('6bc2fe0d-181a-4893-8b19-0c92f02f70a1', event.url);
                 }
             }
         });

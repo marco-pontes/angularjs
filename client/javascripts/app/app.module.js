@@ -18,7 +18,6 @@ var contact_component_1 = require("./contact/contact.component");
 var sidebar_component_1 = require("./core/sidebar/sidebar.component");
 var navbar_component_1 = require("./core/navbar/navbar.component");
 var appRoutes = [
-    { path: '', component: app_component_1.AppComponent },
     { path: 'contact', component: contact_component_1.ContactComponent },
     { path: 'price', component: price_component_1.PriceComponent },
     { path: 'home', component: home_component_1.HomeComponent },

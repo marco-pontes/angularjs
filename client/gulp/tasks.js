@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     gif = require('gulp-if'),
     livereload = require('gulp-livereload'),
     uglify = require ('gulp-uglify'),
-    typescript = require('gulp-tsc'),
+    typescript = require('gulp-typescript'),
     path = require('path'),
     rename = require('gulp-rename'),
     SystemBuilder = require('systemjs-builder'),
@@ -43,6 +43,7 @@ gulp.task('compile:typescript', function(done) {
     var emitDecoratorMetadata = true;
     var experimentalDecorators = true;
     var removeComments = false;
+    var tsProject = typescript.createProject('tsconfig.json');
     gutil.log(chalk.bold("Environment: " + config.env));
     gutil.log(chalk.red("SourceMap: "  + sourceMap));
     gutil.log(chalk.red("EmitDecoratorMetadata: "  + emitDecoratorMetadata));
@@ -51,14 +52,7 @@ gulp.task('compile:typescript', function(done) {
     gutil.log(chalk.green('✔ ') + chalk.bold.gray(paths.typescript.src) + chalk.red(' -> ') + chalk.bold(paths.typescript.dest));
     var stream = gulp.src(paths.typescript.src)
         .pipe(plumber({errorHandler: logError}))
-        .pipe(typescript({
-            "sourceMap": sourceMap,
-            "emitDecoratorMetadata": emitDecoratorMetadata,
-            "experimentalDecorators": experimentalDecorators,
-            "removeComments": removeComments,
-            "target" :"ES5",
-            "moduleResolution":"node"
-        }))
+        .pipe(tsProject())
         .pipe(gulp.dest(paths.typescript.dest))
         .on('end', function () {
             logFinish('Typescript compilation')();
@@ -265,8 +259,6 @@ gulp.task('compile:index', function(done) {
     }
     htmlStream.on('end', function () {
         gulp.src([paths.build + paths.mainHtml])
-            .pipe(rename('index.gsp'))
-            .pipe(gulp.dest("../views/"))
             .on('end', function () {
                 logFinish('Index compilation')();
                 done();

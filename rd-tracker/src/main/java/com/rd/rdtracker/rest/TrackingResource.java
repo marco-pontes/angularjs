@@ -55,6 +55,7 @@ public class TrackingResource {
             if (user == null) {
                 user = new User();
                 user.setEmail(email);
+                user.setApplication(application);
                 userSessionBean.save(user);
                 application.getUsers().add(user);
                 applicationSessionBean.update(application);
@@ -64,11 +65,11 @@ public class TrackingResource {
                 final String[] values = view.split(";");
                 final Date date = new Date(Long.parseLong(values[1]));
                 final String url = values[0];
-                final PageView pageView = pageViewSessionBean.create(url, date);
+                final PageView pageView = pageViewSessionBean.create(url, date, user);
                 pageViews.add(pageView);
             }
-            user.getPageViews().addAll(pageViews);
-            userSessionBean.update(user);
+            user.addPageViews(pageViews);
+            userSessionBean.update(user); 
 
         } else {
             throw new IllegalArgumentException("The application is not registered for tracking");

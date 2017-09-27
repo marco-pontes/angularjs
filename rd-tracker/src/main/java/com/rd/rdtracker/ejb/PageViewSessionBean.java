@@ -13,6 +13,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import com.rd.rdtracker.entities.PageView;
+import com.rd.rdtracker.entities.User;
 
 @Named
 @Stateless
@@ -20,13 +21,14 @@ public class PageViewSessionBean extends RDSessionBean {
 	@PersistenceContext
 	EntityManager em;
 	
-    public PageView create(final String name, final Date time) {
+    public PageView create(final String name, final Date time, User user) {
         final PageView pageView = new PageView();
         pageView.setUrl(name);
         pageView.setTime(time);
 		final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		final Validator validator = factory.getValidator();
         final Set<ConstraintViolation<PageView>> constraintViolations = validator.validate(pageView);
+        pageView.setUser(user);
         em.persist(pageView);
         return pageView;
 	}

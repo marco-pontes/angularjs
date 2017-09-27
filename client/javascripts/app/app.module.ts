@@ -12,7 +12,6 @@ import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent},
   { path: 'contact', component: ContactComponent},
   { path: 'price', component: PriceComponent },
   { path: 'home', component: HomeComponent },

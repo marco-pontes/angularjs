@@ -6,8 +6,6 @@ import {ContactComponent} from './../contact/contact.component';
 import { Router, NavigationStart, NavigationEnd, NavigationError, NavigationCancel, RoutesRecognized } from '@angular/router';
 
 
-declare var jQuery: any;
-
 @Component({
   selector: '[app]',
   styleUrls: ['/static/stylesheets/application.css'],
@@ -16,10 +14,12 @@ declare var jQuery: any;
 
 export class AppComponent implements OnInit {
   el: ElementRef;
+  router: Router;
 
 
-  constructor(el: ElementRef, private router: Router) {
+  constructor(el: ElementRef, router: Router) {
     this.el = el;
+    this.router = router;
   }
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
         function(event){
           if(event instanceof NavigationEnd) {
               if(window['trackVisit']){
-                window['trackVisit']('97a39a2f-b395-45f7-824e-2ec26525f1cb', event.url);
+                window['trackVisit']('6bc2fe0d-181a-4893-8b19-0c92f02f70a1', event.url);
               }
             }
           }
