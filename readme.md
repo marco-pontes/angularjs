@@ -39,8 +39,6 @@ In the root 'client-spa' folder run:
 
 npm install
 
-npm remove @types/es6-promise
-
 npm start 
 
 
