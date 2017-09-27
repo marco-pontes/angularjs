@@ -33,7 +33,7 @@ The library is almost the same, but it doesn't call the tracking for itself.
 The tracking is called inside the angular router navigation events(app.component.ts#35). It uses gulp as the build tool and some other libraries to package the compiled typescript and other files.
 
 
-##### To run this app: 
+##### To run this app(tested on windows with node 6.11.3): 
 
 In the root folder run:
 
