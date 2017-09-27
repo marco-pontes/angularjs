@@ -57,5 +57,8 @@ npm install
 install it into a java EE container(tested with wildfly 10.1)
 
 ### The Tracker Library(rd-tracking.js)
-rd-tracker.js is the javascript library that will send page views to the rd-tracker backend app. It basically saves tracked pages in the sessionStorage when there is no e-mail saved in the session(email informed by the contact form). After the email is informed, the tracker javascript sends all pages to the rd-tracker backend and clears the sessionStorage page cache. After that each page view is tracked in real time, each request is sent to the backend rd-tracker for tracking.
+rd-tracker.js is the javascript library that will send page views to the rd-tracker backend app. It basically saves tracked pages in the sessionStorage when there is no e-mail saved in the session(email informed by the contact form). 
+
+After the email is informed, the tracker javascript sends all pages to the rd-tracker backend and clears the sessionStorage page cache. After that each page view is tracked in real time, each request is sent to the backend rd-tracker for tracking.
+
 The library uses only vannila javascript so that no extra library is needed when the clients want to incorporate it in their sites.
