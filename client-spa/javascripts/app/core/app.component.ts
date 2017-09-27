@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
         function(event){
           if(event instanceof NavigationEnd) {
               if(window['trackVisit']){ 
-                window['trackVisit'](window['clientId'], event.url);
+                window['trackVisit'](document['clientId'], event.url);
               }
             }
           }

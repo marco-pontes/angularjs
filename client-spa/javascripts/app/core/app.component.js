@@ -25,7 +25,7 @@ let AppComponent = class AppComponent {
         this.router.events.subscribe(function (event) {
             if (event instanceof router_1.NavigationEnd) {
                 if (window['trackVisit']) {
-                    window['trackVisit'](window['clientId'], event.url);
+                    window['trackVisit'](document['clientId'], event.url);
                 }
             }
         });
